@@ -1,17 +1,14 @@
 package Ciphers;
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Hashtable;
 
 public class Caesar{
     private String message;
-    private char cryptType;
+    private String cryptType;
     private int key;
 
-    public Caesar(String message, char cryptType, int key){
+    public Caesar(String message, String cryptType, int key){
         this.message = message;
         this.cryptType = cryptType;
-        if (cryptType == 'd'){
+        if (cryptType == "d"){
             this.key = 26-key;
         } else{
             this.key = key;
@@ -33,7 +30,7 @@ public class Caesar{
 
     public String toString(){
         if (key == 0 || key == 26){
-            if (cryptType == 'e'){
+            if (cryptType == "e"){
                 return "Invalid data entered: Can not Encrypt with an empty Key";
             }
             String answer = "Possible Answers:\n";
@@ -44,7 +41,7 @@ public class Caesar{
             return answer;
         }
         else{
-            String meaning = (cryptType == 'e') ? "encryption" : "decryption";
+            String meaning = (cryptType == "e") ? "encryption" : "decryption";
             return "The " + meaning + " of the message is:\n" + createNewMessage();
         }
     }

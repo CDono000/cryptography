@@ -1,11 +1,32 @@
 import Ciphers.Caesar;
+import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        Caesar cipher = new Caesar("Hello, World!", 'e', 3);
-        System.out.println(cipher.toString()); // Outputs: Khoor, Zruog!
+        String [] ciphers = {"Caesar", "Vigenere"};
+        int current = 0;
+        String decision = "n";
+        java.util.Scanner inputs = new Scanner(System.in);
 
-        Caesar decipher = new Caesar("Khoor, Zruog!", 'd', 0);
-        System.out.println(decipher.toString()); // Outputs: Hello, World!
+        while (decision == "n"){
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+            System.out.println("Enter the number of the cipher you want to use\nEnter 'n' for next page\n ");
+            for (int i = (current * 10); i < Math.min(ciphers.length, (current + 1) * 10); i++){
+                System.out.println((i+1) + ": " + ciphers[i]);
+            }
+            decision = inputs.nextLine();
+        }
+        System.out.println("What is your message");
+        String message = inputs.nextLine();
+        System.out.println("Enter E for encrption and D for decryption");
+        String cryptType = inputs.nextLine().toLowerCase();
+        System.out.println("Enter the key");
+        String key = inputs.nextLine();
+        //Temporary code
+        //Ask lecturers about dynamic attribution of data types
+        if (Integer.parseInt(decision) == 0){
+            System.out.println(new Caesar(message, cryptType, Integer.parseInt(key)));
+        }
     }
 }
