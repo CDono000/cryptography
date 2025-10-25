@@ -19,10 +19,10 @@ while cipherType != "":
         cipherType = input("What cipher would you like to use? ").lower()
     if cipherType == "":
         break
-    text = input("Enter the text to use")
-    cryptType = input("Enter E for encrypt and D for decrypt").lower()
-    key = input("Enter the key to use (If key is unknown enter 0)")
-    result = subprocess.run(["java", "ciphers/"+ciphers[int(cipherType)-1]], capture_output=True, text=True)
+    text = input("Enter the text to use: ")
+    cryptType = input("Enter E for encrypt and D for decrypt: ").lower()
+    key = input("Enter the key to use (If key is unknown enter 0): ")
+    result = subprocess.run(["java", "ciphers/"+ciphers[int(cipherType)-1], text, cryptType, key], capture_output=True, text=True)
     print(result.stdout)
 
 # Print the output from the Java code
