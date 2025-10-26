@@ -10,4 +10,4 @@ Java - Optimisation
 Rust - Perfected
 
 # Current Cyphers:
-Caesar Cipher
+Rot-n (Often called Caesar Cipher)
