@@ -2,17 +2,13 @@ package Ciphers;
 
 public class Caesar{
     private String message;
-    private String cryptType;
+    private Boolean cryptType;
     private int key;
 
-    public Caesar(String message, String cryptType, int key){
+    public Caesar(String message, Boolean cryptType, int key){
         this.message = message;
         this.cryptType = cryptType;
-        if (cryptType == "d"){
-            this.key = 26-key;
-        } else{
-            this.key = key;
-        }
+        this.key = cryptType ? key : (26 - key) % 26;
     }
 
     public String createNewMessage(){
@@ -30,7 +26,7 @@ public class Caesar{
 
     public String toString(){
         if (key == 0 || key == 26){
-            if (cryptType == "e"){
+            if (cryptType){
                 return "Invalid data entered: Can not Encrypt with an empty Key";
             }
             String answer = "Possible Answers:\n";
@@ -41,7 +37,7 @@ public class Caesar{
             return answer;
         }
         else{
-            String meaning = (cryptType == "e") ? "encryption" : "decryption";
+            String meaning = cryptType ? "encryption" : "decryption";
             return "The " + meaning + " of the message is:\n" + createNewMessage();
         }
     }

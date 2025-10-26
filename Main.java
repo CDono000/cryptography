@@ -20,13 +20,13 @@ public class Main{
         System.out.println("What is your message");
         String message = inputs.nextLine();
         System.out.println("Enter E for encrption and D for decryption");
-        String cryptType = inputs.nextLine().toLowerCase();
+        Boolean encrypt = inputs.nextLine().trim().toLowerCase().equals("e");
         System.out.println("Enter the key");
         String key = inputs.nextLine();
         //Temporary code
         //Ask lecturers about dynamic attribution of data types
-        if (Integer.parseInt(decision) == 0){
-            System.out.println(new Caesar(message, cryptType, Integer.parseInt(key)));
+        if (Integer.parseInt(decision)-1 == 0){
+            System.out.println(new Caesar(message, encrypt, Integer.parseInt(key)));
         }
     }
 }
