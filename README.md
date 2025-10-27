@@ -11,4 +11,5 @@ Rust - Perfected
 
 # Current Cyphers:
 Rot-n (Often called Caesar Cipher)
+
 Vigenère Cipher
