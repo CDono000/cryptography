@@ -1,4 +1,4 @@
-import Ciphers.Caesar;
+import Ciphers.*;
 import java.util.Scanner;
 
 public class Main{
@@ -27,6 +27,9 @@ public class Main{
         //Ask lecturers about dynamic attribution of data types
         if (Integer.parseInt(decision)-1 == 0){
             System.out.println(new Caesar(message, encrypt, Integer.parseInt(key)));
+        }
+        if (Integer.parseInt(decision)-1 == 1){
+            System.out.println(new Vigenere(message.toUpperCase(), encrypt, key.toUpperCase()));
         }
     }
 }
